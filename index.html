@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compromisos Individuales - Ventas</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 1rem; background-color: #f9f9f9; }
+    h2 { color: #333; }
+    label { display: block; margin-top: 1rem; font-weight: bold; }
+    input, textarea, select { width: 100%; padding: 0.5rem; margin-top: 0.5rem; border: 1px solid #ccc; border-radius: 5px; }
+    table { width: 100%; margin-top: 1rem; border-collapse: collapse; }
+    th, td { padding: 0.5rem; border: 1px solid #ccc; text-align: center; }
+    button { margin-top: 2rem; padding: 0.75rem 1.5rem; background-color: #4CAF50; color: white; border: none; border-radius: 5px; font-size: 1rem; }
+    #formulario { display: none; }
+  </style>
+  <script>
+    function autenticar() {
+      const usuario = document.getElementById('usuario').value.trim().toLowerCase();
+      const permitidos = ['fernando espinosa', 'jovanny ortíz', 'carlos salina'];
+      if (permitidos.includes(usuario)) {
+        document.getElementById('autenticacion').style.display = 'none';
+        document.getElementById('formulario').style.display = 'block';
+        document.getElementById('vendedor').value = usuario;
+      } else {
+        alert('Nombre no autorizado.');
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <div id="autenticacion">
+    <h2>Identifícate para llenar el formulario</h2>
+    <label for="usuario">Escribe tu nombre completo:</label>
+    <input type="text" id="usuario" placeholder="Ej. Fernando Espinosa">
+    <button onclick="autenticar()">Ingresar</button>
+  </div>
+
+  <div id="formulario">
+    <h2>Compromisos Individuales – Equipo de Ventas</h2>
+
+    <label for="vendedor">Nombre del vendedor:</label>
+    <input type="text" id="vendedor" name="vendedor" readonly>
+
+    <label for="mes">Mes:</label>
+    <input type="text" id="mes" name="mes">
+
+    <label for="metaVentas">Meta de ventas mensual (MXN):</label>
+    <input type="number" id="metaVentas" name="metaVentas">
+
+    <h3>Objetivos complementarios</h3>
+    <label>Clientes nuevos:</label><input type="number">
+    <label>Obras grandes (nuevas):</label><input type="number">
+    <label>Cotizaciones generadas:</label><input type="number">
+    <label>Ventas cerradas:</label><input type="number">
+    <label>Tasa de conversión esperada (%):</label><input type="number">
+    <label>Puntualidad (%):</label><input type="number">
+    <label>Asistencia (%):</label><input type="number">
+
+    <h3>Estrategia personal</h3>
+    <textarea rows="4" placeholder="Escribe aquí las acciones concretas que tomarás..."></textarea>
+
+    <h3>Seguimiento semanal</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Semana</th>
+          <th>¿Cumplió metas?</th>
+          <th>Observaciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><select><option>Sí</option><option>No</option></select></td><td><input type="text"></td></tr>
+        <tr><td>2</td><td><select><option>Sí</option><option>No</option></select></td><td><input type="text"></td></tr>
+        <tr><td>3</td><td><select><option>Sí</option><option>No</option></select></td><td><input type="text"></td></tr>
+        <tr><td>4</td><td><select><option>Sí</option><option>No</option></select></td><td><input type="text"></td></tr>
+      </tbody>
+    </table>
+
+    <button>Enviar</button>
+  </div>
+
+</body>
+</html>
